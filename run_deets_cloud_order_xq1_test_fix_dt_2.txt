@@ -1,0 +1,5 @@
+num	seed	R_eq(m)	X	f	r_b(m)
+0	../../seed_pos/seed0_norm_10000.txt	250000.0	0.75	10	-1.0
+1	../../seed_pos/seed1_norm_10000.txt	250000.0	0.75	10	-1.0
+2	../../seed_pos/seed2_norm_10000.txt	250000.0	0.75	10	-1.0
+3	../../seed_pos/seed3_norm_10000.txt	250000.0	0.75	10	-1.0
