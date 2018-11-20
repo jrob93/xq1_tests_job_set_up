@@ -17,7 +17,7 @@ f_inf=[1,1,1]
 R_eq=[100e3,250e3,750e3]
 seed=["../../seed_pos/seed0_norm_10000.txt","../../seed_pos/seed0_norm_10000.txt","../../seed_pos/seed0_norm_10000.txt"]
 Ntot=1e4
-r_boulder = [-1.0]
+r_boulder = [-1.0,-1.0,-1.0]
 
 collision_resolve= 'reb_collision_resolve_merge_out'
 reb_func="../../reb_funcs/reb_func.h"
