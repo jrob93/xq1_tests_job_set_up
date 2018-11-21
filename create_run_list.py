@@ -9,6 +9,7 @@ base_dir="cloud_runs_fix_dt_2_base"
 rebound_base_dir="../rebound_order_grav_collapse_condor_base"
 dir_create_path="../xq1_jobs_test"
 dir_name="cloud_order_xq1_test_fix_dt_2"
+data_store="../../../../xq1_test_completed_jobs/"
 
 # run parameters
 num_list=[0,20,40]
@@ -66,6 +67,7 @@ for n in range(len(num_list)):
     run_dir="{}/{:03}_{}".format(run_set_dir,num,dir_name)
 
     # add safety check to not overwrite existing things?
+    # add warning if we are overwriting?
     subprocess.call(["rm","-rf","{}/{}".format(dir_create_path,new_dir)])
     subprocess.call(["cp","-rf",rebound_base_dir,"{}/{}".format(dir_create_path,new_dir)])
     subprocess.call(["mkdir","{}".format(run_set_dir)])
@@ -172,8 +174,13 @@ for i in range(len(job_list)):
     for j in range(len(data)):
         if '#SBATCH -J' in data[j]:
             data[j]='#SBATCH -J jamiedemo{}'.format(job_list[i].split('_')[0])
+
+    # Add lines to copy back data and rm dir
+    data.append('srun cp -r {} {}'.format(run_dir,data_store))
+    data.append('srun rm -rf {}/{}'.format(path_to_jobs,job_list[i]))
+
     with open ("{}/submit.bash".format(run_dir), "w") as myfile:
         myfile.writelines(data)
 
     # Submit job here
-    process=subprocess.Popen("sbatch submit.bash",shell=True,cwd="{}".format(run_dir)).wait()
+    # process=subprocess.Popen("sbatch submit.bash",shell=True,cwd="{}".format(run_dir)).wait()
