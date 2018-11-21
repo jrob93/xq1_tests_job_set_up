@@ -176,8 +176,9 @@ for i in range(len(job_list)):
             data[j]='#SBATCH -J jamiedemo{}'.format(job_list[i].split('_')[0])
 
     # Add lines to copy back data and rm dir
-    data.append('srun cp -r {} {}'.format(run_dir,data_store))
-    data.append('srun rm -rf {}/{}'.format(path_to_jobs,job_list[i]))
+    data.append('srun cp -rv {} {}\n'.format(run_dir,data_store))
+    data.append('srun cd')
+    data.append('srun rm -rfv {}/{}\n'.format(path_to_jobs,job_list[i]))
 
     with open ("{}/submit.bash".format(run_dir), "w") as myfile:
         myfile.writelines(data)
