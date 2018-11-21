@@ -12,11 +12,11 @@ dir_name="cloud_order_xq1_test_fix_dt_2"
 data_store="../../../../xq1_test_completed_jobs/"
 
 # run parameters
-num_list=[0,20,40]
+num_list=[60,80,100]
 X_rot=[0.5,0.5,0.5]
 f_inf=[1,1,1]
 R_eq=[100e3,250e3,750e3]
-seed=["../../seed_pos/seed0_norm_10000.txt","../../seed_pos/seed0_norm_10000.txt","../../seed_pos/seed0_norm_10000.txt"]
+seed=["../../seed_pos/seed1_norm_10000.txt","../../seed_pos/seed1_norm_10000.txt","../../seed_pos/seed1_norm_10000.txt"]
 Ntot=1e4
 r_boulder = [-1.0,-1.0,-1.0]
 
